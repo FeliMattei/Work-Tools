@@ -1,0 +1,282 @@
+body {
+  background-color:#5f5d65;
+  font-family: 'Roboto';
+  color: #414145; 
+}
+
+::selection { 
+  color: #ffffff; 
+  background: #918e9b;
+}
+
+.container {
+  border-radius: 12px;
+  box-shadow: 4px 4px 6px rgb(0,0,0,.2);
+  padding: 35px;
+  margin: 20px;  
+  background-color:#77757f;
+}
+
+.menu {
+  border-radius: 12px;
+  box-shadow: 4px 4px 6px rgb(0,0,0,.2);
+  padding: 26px 35px;
+  margin: 20px;  
+  background-color:#77757f;
+}
+
+.title {
+  margin: -8px 0px 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.tab-menu ul{
+  width: 100%;
+  height: auto;
+  list-style-type: none;
+  background: #918e9b;
+  overflow: hidden;
+  padding: 0px;
+  margin: 10px 0px 0px;
+  border-radius: 12px;
+}
+
+.tab-menu li {
+  float: left;
+  text-align: center;
+  padding: 15px 0px;
+  margin: 0px;
+  color: #545359;
+  transition: 3s opacity ease-out;
+}
+
+.tab-menu span {
+  padding: 25px 24px;
+}
+
+.tab-menu li.active {
+  background: #605F66;
+  box-shadow: 4px 2px 4px rgb(0,0,0,.1);
+  color: #fff;
+}
+
+.tab-menu li:hover {
+  background-color: #605F66;
+  box-shadow: 4px 2px 4px rgb(0,0,0,.1);
+  color: #fff;
+  cursor: pointer;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-border {
+  background: #918e9b;
+  padding: 15px 0px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 4px 2px 4px rgb(0,0,0,.1);
+}
+
+.task-list li{
+  background-color: #c7c5cc;
+  box-shadow: 4px 4px 4px rgb(0,0,0,.1);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 26px 0px 26px;
+  white-space: initial;
+  display: block;
+  line-height: 30px;
+  overflow-wrap: break-word;
+}
+
+.tasks .input {
+  background-color: #47464b;
+  outline: none;
+  color: #ecebee;
+  border: none;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 14px 5px 0px 26px;
+  box-shadow: 4px 4px 4px rgb(0,0,0,.1);
+  width: 75%;
+  height: auto;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.btn {
+  background-color: #b4b2bb;
+  border-radius: 6px;
+  border: none;
+  color: #47464b;
+  padding: 8px 12px;
+  box-shadow: 4px 4px 4px rgb(0,0,0,.1);
+}
+
+.btn:hover {
+  background-color: #d9d8dd;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn:active {
+  background-color: #A7A6AB;
+  color: #ffffff;
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.btnremove {
+  background-color: #d0314e;
+  border-radius: 6px;
+  border: none;
+  color: #ecebee;
+  padding: 4px;
+  margin-left: 10px;
+  margin-bottom: -8px;
+  width: 30px;
+  height: 30px;
+  box-shadow: 4px 4px 4px rgb(0,0,0,.1);
+  float: right;
+}
+
+.btnremove:hover {
+  background-color: #e44864;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+.btnremove:active {
+  background-color: rgb(180, 39, 65);
+  color: #d6d6d6;
+  cursor: pointer;
+  transform: translateY(1px);
+}
+
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-label {
+  font-size: 90px;
+}
+
+.timer-buttons {
+  background-color: #b4b2bb;
+  border-radius: 6px;
+  border: none;
+  color: #47464b;
+  padding: 8px 12px;
+  margin: 0px 5px;
+  box-shadow: 4px 4px 4px rgb(0,0,0,.1);
+}
+
+.timer-config-modal {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border-radius: 12px;
+  z-index: 10;
+  width: 500px;
+  max-width: 80%;
+  background-color: #918e9b;
+  box-shadow: 8px 4px 8px rgb(0,0,0,.2);
+}
+
+.timer-config-modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.timer-config-modal .header{
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timer-config-modal .header .title-modal {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.header .close {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.timer-config-modal .body {
+  padding: 15px 25px 40px;
+  background-color: #706f77;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.timer-config-modal .body .minutes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-config-modal .body .label-minutes {
+  font-size: 18px;
+  color: #ecebee;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.timer-config-modal .body .input-minutes {
+  border-radius: 4px;
+  background-color: #dcdae0;
+  font-size: 16px;
+  padding: 10px;
+  margin: 8px;
+  border: none;
+  color: #555555;
+  width: 16%;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
+}
+
+.timer-config-modal .btn-confirm{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}

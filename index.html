@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Work Tools</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="../assets/imgs/icon.ico">
+        <script defer type="text/javascript" src="js/main.js"></script>
+        <script defer type="text/javascript" src="js/modal.js"></script>
+    </head>
+
+    <body>
+        <header class="menu">
+            <span class="title">Tools</span>
+            <nav class="tab-menu">
+                <ul>
+                    <li class="tab-li active"><span class="tasks">Tasks</span></li>
+                    <li class="tab-li"><span class="timer">Timer</span></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="tab-content tasks active" style="display: block;">
+                    <h1 class="title">Tasks</h1>
+                    <div class="tab-border">
+                        <input type="text" class="input" id="task" name="task" placeholder="Task...">
+                        <button class="btn" id="addTask" onclick="addTask(task.value)">Add</button>
+                    
+                        <div id="task-list" class="task-list">
+                            <ul></ul>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="tab-content timer" style="display: none;">
+                    <h1 class="title">Timer</h1>
+                    <div class="tab-border">
+                        <div class="center">
+                            <span class="timer-label" id="time"> </span>
+                        </div>
+                        <div class="center">
+                            <button class="btn timer-buttons fa fa-play" id="play" onclick="startButton()"></button>
+                            <button class="btn timer-buttons fa fa-gear" data-modal-target="#timer-config-modal"></button>
+                        </div>
+                    </div>
+
+                    <div class="timer-config-modal" id="timer-config-modal">
+                        <div class="header">
+                            <div class="title-modal">Timer</div>
+                            <button class="close" data-close-button>&times;</button>
+                        </div>
+                        <div class="body">
+                            <span class="label-minutes">Minutes</span>
+                            <div class="minutes">
+                                <input type="number" min="1" step="1" value="1" id="minutes" class="input-minutes">
+                            </div>
+                            <button class="btn btn-confirm" id="addTime" onclick="configTimer(minutes.value)" data-close-button>Confirm</button>
+                        </div>
+                    </div>
+                    <div id="overlay"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Script -->
+        <script>
+            (sessionStorage.getItem("tab-menu") == null) ? sessionStorage.setItem('tab-menu', 'tasks') : undefined;
+            tabLi = document.querySelectorAll(".tab-menu li");
+            tabs = document.querySelectorAll(".tab-menu li span");
+
+            tabs.forEach(tab => {  
+                tab.addEventListener('click', function(event) {
+            
+                    // save default tab
+                    sessionStorage.setItem('tab-menu', tab.className);
+    
+                    // not active tabs at the moment
+                    tabLi.forEach(t => {                       
+                        t.setAttribute('class', 'tab-li');
+                    })
+            
+                    tabContent = document.querySelectorAll(".tab-content");
+                    tabContent.forEach(element => {
+                        // select the second class from tabContent
+                        let className = (element) ? element.className.split(" ") : null;
+                        // hide or show tabContent
+                        (tab.className == className[1]) ? element.style.display = "block" : element.style.display = "none";
+                        (tab.className == className[1]) ? tab.parentElement.setAttribute('class', 'tab-li active') : undefined;
+            
+                    });
+                })
+            
+                activeTab = '.'+sessionStorage.getItem("tab-menu");         
+                (activeTab) ? document.querySelector(".tab-menu " + activeTab).click() : document.querySelector(".tab-menu .tasks").click();      
+            });
+
+            var input = document.getElementById("task");
+            input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    document.getElementById("addTask").click();
+                }
+            });
+
+            var minutes = document.getElementById("minutes");
+            minutes.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    document.getElementById("addTime").click();
+                }
+            });
+
+            window.onload = function() {
+                loadTasks();
+                loadTimer();
+            }
+            
+        </script>
+    </body>
+</html>
