@@ -1,9 +1,9 @@
-const alarm = new Audio("../assets/sounds/TimerAlarm.mp3");
-const finishAlarm = new Audio("../assets/sounds/TimerFinished.mp3");
-const addedTask = new Audio("../assets/sounds/AddedTask.mp3");
-const completedTask = new Audio("../assets/sounds/CompletedTask.mp3");
-const timerOn = new Audio("../assets/sounds/TimerOn.mp3");
-const timerOff = new Audio("../assets/sounds/TimerOff.mp3");
+const alarm = new Audio("assets/sounds/TimerAlarm.mp3");
+const finishAlarm = new Audio("assets/sounds/TimerFinished.mp3");
+const addedTask = new Audio("assets/sounds/AddedTask.mp3");
+const completedTask = new Audio("assets/sounds/CompletedTask.mp3");
+const timerOn = new Audio("assets/sounds/TimerOn.mp3");
+const timerOff = new Audio("assets/sounds/TimerOff.mp3");
 
 let isPaused = true;
 let isTimerOn = false;
